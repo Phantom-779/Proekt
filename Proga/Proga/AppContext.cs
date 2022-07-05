@@ -7,9 +7,10 @@ using System.Data.Entity;
 
 namespace Proga
 {
-    class AppContext : DbContext
+    class AppContext:DbContext
     {
-        public DbSet<Metestan> metestan { get; set; }
+        public DbSet<Meteostan> Meteostans { get; set; }
+        public DbSet<Svod> Svods { get; set; }
 
         public AppContext() : base("DefaultConnection") { }
     }

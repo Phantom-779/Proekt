@@ -20,9 +20,14 @@ namespace Proga
     /// </summary>
     public partial class MainWindow : Window
     {
+        AppContext db;
         public MainWindow()
         {
             InitializeComponent();
+
+            db = new AppContext();
+
+
             DateStart.DisplayDateStart = new DateTime(2021, 11, 01);
             DateStart.DisplayDateEnd = new DateTime(2021, 11, 30);
             DateEnd.DisplayDateStart = new DateTime(2021, 11, 01);
@@ -37,6 +42,9 @@ namespace Proga
             Chart.Plot.AddScatter(da, dataX);
             Chart.Plot.XAxis.DateTimeFormat(true);
             Chart.Refresh();
+
+            List<Svod> met = db.Svods.ToList();
+            DataGrid1.ItemsSource = met;
         }
 
     }
